@@ -37,6 +37,7 @@
     <Reference Include="DevExpress.Data.v19.1" />
     <Reference Include="DevExpress.Utils.v19.1" />
     <Reference Include="DevExpress.Sparkline.v19.1.Core" />
+    <Reference Include="DevExpress.XtraBars.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v19.1" />
     <Reference Include="DevExpress.Printing.v19.1.Core" />
     <Reference Include="System" />
@@ -64,18 +65,24 @@
     <Compile Include="Classes\UniqueValue.cs" />
     <Compile Include="Classes\WaitingPanel.cs" />
     <Compile Include="DataLayer\Kullanici.cs" />
-    <Compile Include="FrmAnaForm.cs">
+    <Compile Include="Classes\Program.cs" />
+    <Compile Include="Forms\FrmAyarlar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmAnaForm.Designer.cs">
-      <DependentUpon>FrmAnaForm.cs</DependentUpon>
+    <Compile Include="Forms\FrmAyarlar.designer.cs">
+      <DependentUpon>FrmAyarlar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Classes\Program.cs" />
     <Compile Include="Forms\FrmDBBaglanti.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FrmDBBaglanti.designer.cs">
       <DependentUpon>FrmDBBaglanti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmHakkinda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmHakkinda.designer.cs">
+      <DependentUpon>FrmHakkinda.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmKullaniciGirisi.cs">
       <SubType>Form</SubType>
@@ -83,24 +90,63 @@
     <Compile Include="Forms\FrmKullaniciGirisi.Designer.cs">
       <DependentUpon>FrmKullaniciGirisi.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmKullanicilar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmKullanicilar.designer.cs">
+      <DependentUpon>FrmKullanicilar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmKullaniciYetkileri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmKullaniciYetkileri.designer.cs">
+      <DependentUpon>FrmKullaniciYetkileri.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmWaiting.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FrmWaiting.designer.cs">
       <DependentUpon>FrmWaiting.cs</DependentUpon>
     </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmAnaForm.resx">
+    <Compile Include="Forms\FrmAnaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmAnaForm.Designer.cs">
       <DependentUpon>FrmAnaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UCAyarlar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\UCAyarlar.Designer.cs">
+      <DependentUpon>UCAyarlar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\FrmAyarlar.resx">
+      <DependentUpon>FrmAyarlar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmDBBaglanti.resx">
       <DependentUpon>FrmDBBaglanti.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmHakkinda.resx">
+      <DependentUpon>FrmHakkinda.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmKullaniciGirisi.resx">
       <DependentUpon>FrmKullaniciGirisi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmKullanicilar.resx">
+      <DependentUpon>FrmKullanicilar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmKullaniciYetkileri.resx">
+      <DependentUpon>FrmKullaniciYetkileri.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmWaiting.resx">
       <DependentUpon>FrmWaiting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmAnaForm.resx">
+      <DependentUpon>FrmAnaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UCAyarlar.resx">
+      <DependentUpon>UCAyarlar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -126,6 +172,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="cafe_and_restaurant.ico" />
+    <None Include="coffee.ico" />
+    <Content Include="Images\GöktaşlarMenu.ico" />
     <Content Include="Images\Ok.png" />
     <Content Include="Resources\Update.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
