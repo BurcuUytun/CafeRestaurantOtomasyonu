@@ -4,7 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using CafeRestaurantOtomasyonu.Classes;
 
-namespace CafeRestaurantOtomasyonu
+namespace CafeRestaurantOtomasyonu.DataLayer
 {
     public class Kullanici
     {
@@ -421,6 +421,55 @@ namespace CafeRestaurantOtomasyonu
                 CommonHelper.WriteLog("UpdateKullanici()", string.Format("HATA: {0}", ex.Message));
                 throw ex;
             }
+        }
+
+        public static bool KullaniciIdMevcutMu(string kullaniciAdi)
+        {
+            try
+            {
+
+                string sorgu = @"SELECT KullaniciId
+                                 FROM KULLANICI
+                                 WHERE KullaniciAdi = @KullaniciAdi";
+
+                object objkullaniciId = SqlHelper.GetScalarValue(sorgu,
+                    new DinamikSqlParameter("@KullaniciAdi", kullaniciAdi));
+
+
+                return (objkullaniciId != null && objkullaniciId != DBNull.Value) && Convert.ToInt32(objkullaniciId) > 0;
+            }
+            catch (Exception ex)
+            {
+                CommonHelper.WriteLog("KullaniciIdMevcutMu", ex.Message);
+                throw ex;
+            }
+        }
+        public static DataTable KullaniciDetayiGetir(bool kullaniciAdi, string aramaMetni)
+        {
+            DataTable dataTable = new DataTable();
+            try
+            {
+                string sorgu = @"SELECT KullaniciId, KullaniciAdi [Kullanıcı Adı], AdSoyad [Ad Soyad]
+                                 FROM KULLANICI 
+                                 WHERE #KRITER# LIKE @AramaMetni";
+
+                if (kullaniciAdi)
+                {
+                    sorgu = sorgu.Replace("#KRITER#", "KullaniciAdi");
+                }
+                else
+                    sorgu = sorgu.Replace("#KRITER#", "AdSoyad");
+
+                dataTable = SqlHelper.GetDataTable(sorgu, new DinamikSqlParameter("@AramaMetni", aramaMetni.Replace('*', '%') + '%'));
+            }
+            catch (Exception ex)
+            {
+                dataTable = null;
+
+                CommonHelper.WriteLog("KullaniciDetayiGetir", ex.Message);
+            }
+            return dataTable;
+
         }
     }
 

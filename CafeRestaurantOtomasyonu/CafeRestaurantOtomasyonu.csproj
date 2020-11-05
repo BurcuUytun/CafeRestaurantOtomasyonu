@@ -40,6 +40,9 @@
     <Reference Include="DevExpress.XtraBars.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v19.1" />
     <Reference Include="DevExpress.Printing.v19.1.Core" />
+    <Reference Include="DevExpress.XtraGrid.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Management" />
@@ -64,8 +67,15 @@
     <Compile Include="Classes\SqlHelper.cs" />
     <Compile Include="Classes\UniqueValue.cs" />
     <Compile Include="Classes\WaitingPanel.cs" />
+    <Compile Include="DataLayerCustom\Kullanici.cs" />
+    <Compile Include="DataLayer\Ayar.cs" />
     <Compile Include="DataLayer\Kullanici.cs" />
     <Compile Include="Classes\Program.cs" />
+    <Compile Include="DataLayerCustom\KullaniciYetki.cs" />
+    <Compile Include="DataLayer\KullaniciYetki.cs" />
+    <Compile Include="Forms\CustomXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\FrmAyarlar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +112,12 @@
     <Compile Include="Forms\FrmKullaniciYetkileri.designer.cs">
       <DependentUpon>FrmKullaniciYetkileri.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmList.Designer.cs">
+      <DependentUpon>FrmList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmWaiting.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +137,12 @@
       <DependentUpon>UCAyarlar.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="XtraForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XtraForm1.Designer.cs">
+      <DependentUpon>XtraForm1.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Forms\FrmAyarlar.resx">
       <DependentUpon>FrmAyarlar.cs</DependentUpon>
     </EmbeddedResource>
@@ -138,6 +160,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmKullaniciYetkileri.resx">
       <DependentUpon>FrmKullaniciYetkileri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmList.resx">
+      <DependentUpon>FrmList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmWaiting.resx">
       <DependentUpon>FrmWaiting.cs</DependentUpon>
@@ -159,6 +184,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="XtraForm1.resx">
+      <DependentUpon>XtraForm1.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -174,7 +202,10 @@
   <ItemGroup>
     <None Include="cafe_and_restaurant.ico" />
     <None Include="coffee.ico" />
+    <None Include="Images\add_icon.png" />
+    <None Include="Images\delete-icon.png" />
     <Content Include="Images\GöktaşlarMenu.ico" />
+    <None Include="Images\ok-icon.png" />
     <Content Include="Images\Ok.png" />
     <Content Include="Resources\Update.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

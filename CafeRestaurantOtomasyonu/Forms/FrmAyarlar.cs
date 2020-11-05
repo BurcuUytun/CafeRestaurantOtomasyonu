@@ -31,7 +31,7 @@ namespace CafeRestaurantOtomasyonu
                                  FROM AYAR_GRUPLARI 
                                  ORDER BY AyarGrupId";
 
-                reader = CommonSqlOperations.GetDataReader(sorgu);
+                reader = SqlHelper.GetDataReader(sorgu);
 
                 _bilgiGetirme = true;
 

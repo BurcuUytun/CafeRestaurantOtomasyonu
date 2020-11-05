@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 using CafeRestaurantOtomasyonu.Classes;
+using CafeRestaurantOtomasyonu.DataLayer;
 using DevExpress.XtraEditors;
 
 namespace CafeRestaurantOtomasyonu
@@ -24,7 +25,7 @@ namespace CafeRestaurantOtomasyonu
                                  FROM AYARLAR 
                                  WHERE AyarId>0 AND Fk_AyarGrup=@AyarGrupId
                                  ORDER BY AyarId";
-                DataTable datatable = CommonSqlOperations.GetDataTable(query,
+                DataTable datatable = SqlHelper.GetDataTable(query,
                     new DinamikSqlParameter("@AyarGrupId", ayarGrubu));
                 gcSettings.DataSource = datatable;
             }
@@ -88,7 +89,7 @@ namespace CafeRestaurantOtomasyonu
                                          SET Deger=@Deger 
                                          WHERE AyarId=@AyarId";
 
-                    CommonSqlOperations.ExecuteNonQuery(sorgu, new DinamikSqlParameter("@AyarId", Convert.ToInt16(gvSettings.GetRowCellValue(focusedRowHandle, "AyarId"))),
+                    SqlHelper.ExecuteNonQuery(sorgu, new DinamikSqlParameter("@AyarId", Convert.ToInt16(gvSettings.GetRowCellValue(focusedRowHandle, "AyarId"))),
                                                                new DinamikSqlParameter("@Deger", gvSettings.GetRowCellValue(focusedRowHandle, "Deger").ToString()));
 
 

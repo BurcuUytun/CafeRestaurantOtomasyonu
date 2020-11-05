@@ -41,12 +41,6 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmKullanicilar));
             this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
             this.chbSifreDegistir = new DevExpress.XtraEditors.CheckEdit();
@@ -56,7 +50,6 @@
             this.txtAdSoyad = new DevExpress.XtraEditors.ButtonEdit();
             this.chbAdminKullanici = new DevExpress.XtraEditors.CheckEdit();
             this.chbDurum = new DevExpress.XtraEditors.CheckEdit();
-            this.txtMikroPersonelKodu = new DevExpress.XtraEditors.ButtonEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.ItemForKullaniciAdi = new DevExpress.XtraLayout.LayoutControlItem();
@@ -65,7 +58,6 @@
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForAdSoyad = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForDurum = new DevExpress.XtraLayout.LayoutControlItem();
-            this.ItemForMikroPersonelKodu = new DevExpress.XtraLayout.LayoutControlItem();
             this.vpDogrulama = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnYeni = new DevExpress.XtraEditors.SimpleButton();
@@ -80,7 +72,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtAdSoyad.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chbAdminKullanici.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chbDurum.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMikroPersonelKodu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForKullaniciAdi)).BeginInit();
@@ -89,7 +80,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForAdSoyad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForDurum)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemForMikroPersonelKodu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vpDogrulama)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -102,14 +92,13 @@
             this.dataLayoutControl1.Controls.Add(this.txtAdSoyad);
             this.dataLayoutControl1.Controls.Add(this.chbAdminKullanici);
             this.dataLayoutControl1.Controls.Add(this.chbDurum);
-            this.dataLayoutControl1.Controls.Add(this.txtMikroPersonelKodu);
             this.dataLayoutControl1.DataSource = this.kullaniciBindingSource;
             this.dataLayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataLayoutControl1.Location = new System.Drawing.Point(0, 0);
             this.dataLayoutControl1.Name = "dataLayoutControl1";
             this.dataLayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(533, 195, 942, 350);
             this.dataLayoutControl1.Root = this.layoutControlGroup1;
-            this.dataLayoutControl1.Size = new System.Drawing.Size(496, 143);
+            this.dataLayoutControl1.Size = new System.Drawing.Size(496, 118);
             this.dataLayoutControl1.TabIndex = 0;
             this.dataLayoutControl1.Text = "dataLayoutControl1";
             // 
@@ -128,12 +117,12 @@
             // txtKullaniciAdi
             // 
             this.txtKullaniciAdi.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.kullaniciBindingSource, "KullaniciAdi", true));
-            this.txtKullaniciAdi.Location = new System.Drawing.Point(111, 12);
+            this.txtKullaniciAdi.Location = new System.Drawing.Point(70, 12);
             this.txtKullaniciAdi.Name = "txtKullaniciAdi";
             this.txtKullaniciAdi.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F10), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.txtKullaniciAdi.Properties.MaxLength = 20;
-            this.txtKullaniciAdi.Size = new System.Drawing.Size(373, 20);
+            this.txtKullaniciAdi.Size = new System.Drawing.Size(414, 20);
             this.txtKullaniciAdi.StyleController = this.dataLayoutControl1;
             this.txtKullaniciAdi.TabIndex = 0;
             this.txtKullaniciAdi.Tag = "";
@@ -145,16 +134,16 @@
             // 
             // kullaniciBindingSource
             // 
-            this.kullaniciBindingSource.DataSource = typeof(DinamikHelper.DataLayer.Kullanici);
+            this.kullaniciBindingSource.DataSource = typeof(CafeRestaurantOtomasyonu.DataLayer.Kullanici);
             // 
             // txtSifre
             // 
             this.txtSifre.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.kullaniciBindingSource, "Sifre", true));
-            this.txtSifre.Location = new System.Drawing.Point(111, 60);
+            this.txtSifre.Location = new System.Drawing.Point(70, 60);
             this.txtSifre.Name = "txtSifre";
             this.txtSifre.Properties.MaxLength = 100;
             this.txtSifre.Properties.PasswordChar = '*';
-            this.txtSifre.Size = new System.Drawing.Size(248, 20);
+            this.txtSifre.Size = new System.Drawing.Size(289, 20);
             this.txtSifre.StyleController = this.dataLayoutControl1;
             this.txtSifre.TabIndex = 2;
             this.txtSifre.Tag = "";
@@ -165,12 +154,12 @@
             // txtAdSoyad
             // 
             this.txtAdSoyad.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.kullaniciBindingSource, "AdSoyad", true));
-            this.txtAdSoyad.Location = new System.Drawing.Point(111, 36);
+            this.txtAdSoyad.Location = new System.Drawing.Point(70, 36);
             this.txtAdSoyad.Name = "txtAdSoyad";
             this.txtAdSoyad.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F10), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.txtAdSoyad.Properties.MaxLength = 100;
-            this.txtAdSoyad.Size = new System.Drawing.Size(373, 20);
+            this.txtAdSoyad.Size = new System.Drawing.Size(414, 20);
             this.txtAdSoyad.StyleController = this.dataLayoutControl1;
             this.txtAdSoyad.TabIndex = 1;
             this.txtAdSoyad.Tag = "";
@@ -179,7 +168,7 @@
             // chbAdminKullanici
             // 
             this.chbAdminKullanici.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.kullaniciBindingSource, "AdminKullanici", true));
-            this.chbAdminKullanici.Location = new System.Drawing.Point(12, 108);
+            this.chbAdminKullanici.Location = new System.Drawing.Point(12, 84);
             this.chbAdminKullanici.Name = "chbAdminKullanici";
             this.chbAdminKullanici.Properties.Caption = "Admin Kullanıcı";
             this.chbAdminKullanici.Size = new System.Drawing.Size(233, 19);
@@ -190,32 +179,13 @@
             // chbDurum
             // 
             this.chbDurum.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.kullaniciBindingSource, "Durum", true));
-            this.chbDurum.Location = new System.Drawing.Point(249, 108);
+            this.chbDurum.Location = new System.Drawing.Point(249, 84);
             this.chbDurum.Name = "chbDurum";
             this.chbDurum.Properties.Caption = "Durum";
             this.chbDurum.Size = new System.Drawing.Size(235, 19);
             this.chbDurum.StyleController = this.dataLayoutControl1;
             this.chbDurum.TabIndex = 6;
             this.chbDurum.Tag = "Durum";
-            // 
-            // txtMikroPersonelKodu
-            // 
-            this.txtMikroPersonelKodu.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.kullaniciBindingSource, "MikroPersonelKodu", true));
-            this.txtMikroPersonelKodu.Location = new System.Drawing.Point(111, 84);
-            this.txtMikroPersonelKodu.Name = "txtMikroPersonelKodu";
-            this.txtMikroPersonelKodu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F10), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.txtMikroPersonelKodu.Size = new System.Drawing.Size(373, 20);
-            this.txtMikroPersonelKodu.StyleController = this.dataLayoutControl1;
-            this.txtMikroPersonelKodu.TabIndex = 4;
-            this.txtMikroPersonelKodu.Tag = "";
-            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule3.ErrorText = "Boş Bırakılamaz.";
-            this.vpDogrulama.SetValidationRule(this.txtMikroPersonelKodu, conditionValidationRule3);
-            this.txtMikroPersonelKodu.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtMikroPersonelKodu_ButtonClick);
-            this.txtMikroPersonelKodu.TextChanged += new System.EventHandler(this.txtMikroPersonelKodu_TextChanged);
-            this.txtMikroPersonelKodu.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMikroPersonelKodu_KeyDown);
-            this.txtMikroPersonelKodu.Leave += new System.EventHandler(this.txtMikroPersonelKodu_Leave);
             // 
             // layoutControlGroup1
             // 
@@ -224,7 +194,7 @@
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlGroup2});
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(496, 143);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(496, 118);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlGroup2
@@ -237,11 +207,10 @@
             this.ItemForAdminKullanici,
             this.layoutControlItem2,
             this.ItemForAdSoyad,
-            this.ItemForDurum,
-            this.ItemForMikroPersonelKodu});
+            this.ItemForDurum});
             this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup2.Name = "autoGeneratedGroup0";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(476, 123);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(476, 98);
             // 
             // ItemForKullaniciAdi
             // 
@@ -250,7 +219,7 @@
             this.ItemForKullaniciAdi.Name = "ItemForKullaniciAdi";
             this.ItemForKullaniciAdi.Size = new System.Drawing.Size(476, 24);
             this.ItemForKullaniciAdi.Text = "Kullanıcı Adı";
-            this.ItemForKullaniciAdi.TextSize = new System.Drawing.Size(96, 13);
+            this.ItemForKullaniciAdi.TextSize = new System.Drawing.Size(55, 13);
             // 
             // ItemForSifre
             // 
@@ -259,14 +228,14 @@
             this.ItemForSifre.Name = "ItemForSifre";
             this.ItemForSifre.Size = new System.Drawing.Size(351, 24);
             this.ItemForSifre.Text = "Şifre";
-            this.ItemForSifre.TextSize = new System.Drawing.Size(96, 13);
+            this.ItemForSifre.TextSize = new System.Drawing.Size(55, 13);
             // 
             // ItemForAdminKullanici
             // 
             this.ItemForAdminKullanici.Control = this.chbAdminKullanici;
-            this.ItemForAdminKullanici.Location = new System.Drawing.Point(0, 96);
+            this.ItemForAdminKullanici.Location = new System.Drawing.Point(0, 72);
             this.ItemForAdminKullanici.Name = "ItemForAdminKullanici";
-            this.ItemForAdminKullanici.Size = new System.Drawing.Size(237, 27);
+            this.ItemForAdminKullanici.Size = new System.Drawing.Size(237, 26);
             this.ItemForAdminKullanici.Text = "Admin Kullanıcı";
             this.ItemForAdminKullanici.TextSize = new System.Drawing.Size(0, 0);
             this.ItemForAdminKullanici.TextVisible = false;
@@ -287,26 +256,17 @@
             this.ItemForAdSoyad.Name = "ItemForAdSoyad";
             this.ItemForAdSoyad.Size = new System.Drawing.Size(476, 24);
             this.ItemForAdSoyad.Text = "Ad Soyad";
-            this.ItemForAdSoyad.TextSize = new System.Drawing.Size(96, 13);
+            this.ItemForAdSoyad.TextSize = new System.Drawing.Size(55, 13);
             // 
             // ItemForDurum
             // 
             this.ItemForDurum.Control = this.chbDurum;
-            this.ItemForDurum.Location = new System.Drawing.Point(237, 96);
+            this.ItemForDurum.Location = new System.Drawing.Point(237, 72);
             this.ItemForDurum.Name = "ItemForDurum";
-            this.ItemForDurum.Size = new System.Drawing.Size(239, 27);
+            this.ItemForDurum.Size = new System.Drawing.Size(239, 26);
             this.ItemForDurum.Text = "Durum";
             this.ItemForDurum.TextSize = new System.Drawing.Size(0, 0);
             this.ItemForDurum.TextVisible = false;
-            // 
-            // ItemForMikroPersonelKodu
-            // 
-            this.ItemForMikroPersonelKodu.Control = this.txtMikroPersonelKodu;
-            this.ItemForMikroPersonelKodu.Location = new System.Drawing.Point(0, 72);
-            this.ItemForMikroPersonelKodu.Name = "ItemForMikroPersonelKodu";
-            this.ItemForMikroPersonelKodu.Size = new System.Drawing.Size(476, 24);
-            this.ItemForMikroPersonelKodu.Text = "Mikro Personel Kodu";
-            this.ItemForMikroPersonelKodu.TextSize = new System.Drawing.Size(96, 13);
             // 
             // tableLayoutPanel1
             // 
@@ -320,7 +280,7 @@
             this.tableLayoutPanel1.Controls.Add(this.btnKaydet, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnSil, 3, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 143);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 118);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -332,7 +292,7 @@
             this.btnYeni.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnYeni.Appearance.Options.UseFont = true;
             this.btnYeni.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnYeni.ImageOptions.Image = global::DinamikHelper.Properties.Resources.add_icon;
+            this.btnYeni.ImageOptions.Image = global::CafeRestaurantOtomasyonu.Properties.Resources.add_icon;
             this.btnYeni.Location = new System.Drawing.Point(199, 3);
             this.btnYeni.Name = "btnYeni";
             this.btnYeni.Size = new System.Drawing.Size(94, 34);
@@ -345,7 +305,7 @@
             this.btnKaydet.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnKaydet.Appearance.Options.UseFont = true;
             this.btnKaydet.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnKaydet.ImageOptions.Image = global::DinamikHelper.Properties.Resources.ok_icon;
+            this.btnKaydet.ImageOptions.Image = global::CafeRestaurantOtomasyonu.Properties.Resources.ok_icon;
             this.btnKaydet.Location = new System.Drawing.Point(299, 3);
             this.btnKaydet.Name = "btnKaydet";
             this.btnKaydet.Size = new System.Drawing.Size(94, 34);
@@ -358,7 +318,7 @@
             this.btnSil.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnSil.Appearance.Options.UseFont = true;
             this.btnSil.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSil.ImageOptions.Image = global::DinamikHelper.Properties.Resources.delete_icon;
+            this.btnSil.ImageOptions.Image = global::CafeRestaurantOtomasyonu.Properties.Resources.delete_icon;
             this.btnSil.Location = new System.Drawing.Point(399, 3);
             this.btnSil.Name = "btnSil";
             this.btnSil.Size = new System.Drawing.Size(94, 34);
@@ -370,7 +330,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(496, 183);
+            this.ClientSize = new System.Drawing.Size(496, 158);
             this.Controls.Add(this.dataLayoutControl1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -387,7 +347,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtAdSoyad.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chbAdminKullanici.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chbDurum.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMikroPersonelKodu.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForKullaniciAdi)).EndInit();
@@ -396,7 +355,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForAdSoyad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForDurum)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemForMikroPersonelKodu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vpDogrulama)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -426,7 +384,5 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraEditors.CheckEdit chbAdminKullanici;
         private DevExpress.XtraLayout.LayoutControlItem ItemForAdminKullanici;
-        private DevExpress.XtraEditors.ButtonEdit txtMikroPersonelKodu;
-        private DevExpress.XtraLayout.LayoutControlItem ItemForMikroPersonelKodu;
     }
 }

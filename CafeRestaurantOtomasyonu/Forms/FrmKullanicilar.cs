@@ -3,20 +3,19 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using CafeRestaurantOtomasyonu.Classes;
+using CafeRestaurantOtomasyonu.DataLayer;
 using DevExpress.XtraEditors;
 
 namespace CafeRestaurantOtomasyonu.Forms.CommonForms
 {
-    public partial class FrmKullanicilar : DevExpress.XtraEditors.XtraForm
+    public partial class FrmKullanicilar : CustomXtraForm
     {
         string _sonKullaniciAdi;
         private Kullanici _kullanici = new Kullanici();
         private int _kullaniciId = 0;
         private bool _guncelle = false;
         private bool _kullaniciKartiGetiriliyor;
-        private string _personelKodu = string.Empty;
-        private string _sonPersonelKodu = string.Empty;
-        private bool _personelSecildi = false;
 
         public FrmKullanicilar()
         {
@@ -30,7 +29,7 @@ namespace CafeRestaurantOtomasyonu.Forms.CommonForms
         {
             if (_kullaniciKartiGetiriliyor || Kapatiliyor)
                 return;
-            var kullaniciVar = DataLayerCustom.Kullanici.KullaniciIdMevcutMu(txtKullaniciAdi.Text.Trim() == "" ? string.Empty : txtKullaniciAdi.Text.Trim());
+            var kullaniciVar = Kullanici.KullaniciIdMevcutMu(txtKullaniciAdi.Text.Trim() == "" ? string.Empty : txtKullaniciAdi.Text.Trim());
             _kullaniciKartiGetiriliyor = true;
             bool degerlerFarkliMi =
                 CommonHelper.DegerleriTagdanFarkliMi(layoutControlGroup2, new string[] { txtKullaniciAdi.Name });
@@ -98,7 +97,6 @@ namespace CafeRestaurantOtomasyonu.Forms.CommonForms
                     chbSifreDegistir.Visible = true;
                     chbAdminKullanici.EditValue = _kullanici.AdminKullanici;
                     chbDurum.EditValue = _kullanici.Durum == 0 ? false : true;
-                    txtMikroPersonelKodu.Text = _kullanici.MikroPersonelKodu;
                     CommonHelper.DegerleriTagaAl(layoutControlGroup2);
 
                     _guncelle = true;
@@ -126,7 +124,7 @@ namespace CafeRestaurantOtomasyonu.Forms.CommonForms
         {
             try
             {
-                DataTable dataTable = DataLayerCustom.Kullanici.KullaniciDetayiGetir(kullaniciAdi, aramaMetni);
+                DataTable dataTable = Kullanici.KullaniciDetayiGetir(kullaniciAdi, aramaMetni);
 
                 FrmList frmList = new FrmList("Kullanıcılar", dataTable, 440, "KullaniciId", string.Empty, 0);
                 frmList.ShowDialog();
@@ -160,7 +158,6 @@ namespace CafeRestaurantOtomasyonu.Forms.CommonForms
                         _kullanici.AdSoyad = txtAdSoyad.Text.Trim();
                         _kullanici.Sifre = hashedSifre;
                         _kullanici.AdminKullanici = chbAdminKullanici.Checked;
-                        _kullanici.MikroPersonelKodu = txtMikroPersonelKodu.Text.Trim();
                         _kullanici.Durum = Convert.ToByte(chbDurum.Checked);
                         _kullanici.Ekleyen = MevcutKullanici.KullaniciId;
                         _kullanici.Guncelleyen = MevcutKullanici.KullaniciId;
@@ -197,7 +194,6 @@ namespace CafeRestaurantOtomasyonu.Forms.CommonForms
                         _kullanici.KullaniciAdi = txtKullaniciAdi.Text.Trim();
                         _kullanici.AdSoyad = txtAdSoyad.Text.Trim();
                         _kullanici.AdminKullanici = chbAdminKullanici.Checked;
-                        _kullanici.MikroPersonelKodu = txtMikroPersonelKodu.Text.Trim();
                         _kullanici.Durum = Convert.ToByte(chbDurum.Checked);
                         _kullanici.Guncelleyen = MevcutKullanici.KullaniciId;
                         if (chbSifreDegistir.Checked)
@@ -306,9 +302,6 @@ namespace CafeRestaurantOtomasyonu.Forms.CommonForms
             _kullaniciId = 0;
             _sonKullaniciAdi = string.Empty;
             _kullanici = new Kullanici();
-            _personelKodu = string.Empty; 
-            _sonPersonelKodu = string.Empty;
-            _personelSecildi = false;
             _kullaniciKartiGetiriliyor = false;
             CommonHelper.AlanlariTemizle(layoutControlGroup2, kodHaric ? new string[] { txtKullaniciAdi.Name } : null);
             CommonHelper.DegerleriTagaAl(layoutControlGroup2);
@@ -327,7 +320,6 @@ namespace CafeRestaurantOtomasyonu.Forms.CommonForms
 
         private void btnKaydet_Click(object sender, System.EventArgs e)
       {
-            PersonelGetir(Enumerations.VeriGetirmeYontemi.Kod, true);
             KaydetGuncelle();
         }
 
@@ -368,116 +360,6 @@ namespace CafeRestaurantOtomasyonu.Forms.CommonForms
         {
 
             KullaniciListesiGetir(false, txtAdSoyad.Text.Trim());
-        }
-
-        private void txtMikroPersonelKodu_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
-        {
-            try
-            {
-                string sorgu = @"SELECT cari_per_kod [Personel Kodu],
-                                        cari_per_adi [Personel Adı]
-                                 FROM CARI_PERSONEL_TANIMLARI 
-                                 WHERE cari_per_kod LIKE @AramaMetni";
-
-                DataTable dataTable  = CommonSqlOperations.GetDataTableMikro(sorgu, new DinamikSqlParameter("@AramaMetni", txtMikroPersonelKodu.Text.Trim().Replace('*', '%') + '%'));
-
-                FrmList frmList = new FrmList("Personeller", dataTable, 440, "Personel Kodu", string.Empty);
-                frmList.ShowDialog();
-
-                if (frmList.ValueEntered)
-                {
-                    _personelKodu = Convert.ToString(frmList.Value1);
-                    PersonelGetir(Enumerations.VeriGetirmeYontemi.Kod, false);
-                }
-            }
-            catch (Exception ex)
-            {
-                CommonHelper.WriteLog("Personel Seçimi", ex.Message);
-                XtraMessageBox.Show("Personel seçimi sırasında hata meydana geldi. " + ex.Message, "Hata",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void txtMikroPersonelKodu_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                PersonelGetir(Enumerations.VeriGetirmeYontemi.Kod, true);
-            }
-        }
-
-        private void txtMikroPersonelKodu_Leave(object sender, EventArgs e)
-        {
-
-            PersonelGetir(Enumerations.VeriGetirmeYontemi.Kod, true);
-        }
-
-
-        private void PersonelGetir(Enumerations.VeriGetirmeYontemi personelGetirmeYontemi, bool textBox)
-        {
-            if (Kapatiliyor)
-                return;
-
-            SqlDataReader reader = null;
-         
-                try
-                {
-                    Personel personel = null;
-                    if (personelGetirmeYontemi == Enumerations.VeriGetirmeYontemi.Kod)
-                    {
-                        List<Personel> personeller = Personel.GetPersonelByPersonelKodu(textBox ? txtMikroPersonelKodu.Text.Trim() : _personelKodu);
-
-                        if (personeller.Count > 0)
-                            personel = personeller[0];
-                        else
-                        {
-                            if (_personelKodu != string.Empty || txtMikroPersonelKodu.Text.Trim() != string.Empty)
-                            {
-                                XtraMessageBox.Show("Hesap Bulunamadı.", "Uyarı", MessageBoxButtons.OK,
-                                    MessageBoxIcon.Warning);
-                                _personelKodu = string.Empty;
-                                txtMikroPersonelKodu.Text = string.Empty;
-                            }
-
-                            _sonPersonelKodu = txtMikroPersonelKodu.Text.Trim();
-
-                            return;
-                        }
-                    }
-                    _personelKodu = _sonPersonelKodu = txtMikroPersonelKodu.Text = personel.PersonelKodu;
-
-                    _personelSecildi = true;
-                    PersonelKontrolu();
-                }
-                catch (Exception ex)
-                {
-                    CommonHelper.WriteLog("Personel Kartı Veri çekme", ex.Message);
-                    XtraMessageBox.Show("Veritabanından veriler çekilemedi! " + ex.Message, "Uyarı",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                finally
-                {
-                    if (reader != null)
-                    {
-                        if (!reader.IsClosed)
-                            reader.Close();
-                        reader.Dispose();
-                    }
-                }
-            
-        }
-        
-        private void PersonelKontrolu()
-        {
-            if (!_personelSecildi)
-            {
-                XtraMessageBox.Show("Personel seçimi yapılmalıdır.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-        private void txtMikroPersonelKodu_TextChanged(object sender, EventArgs e)
-        {
-            _personelSecildi = false;
         }
     }
 }

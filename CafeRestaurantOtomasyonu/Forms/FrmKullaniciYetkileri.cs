@@ -29,7 +29,7 @@ namespace CafeRestaurantOtomasyonu
                                  FROM YETKI_TANIMLARI YT LEFT JOIN KULLANICI_YETKILERI KY ON KY.Fk_YetkiTanimi=YT.YetkiTanimID AND KY.Fk_Kullanici=@UserID 
                                  ORDER BY YT.YetkiTanimID";
 
-                reader = CommonSqlOperations.GetDataReader(query, new DinamikSqlParameter("@UserID", cmbUser.EditValue));
+                reader = SqlHelper.GetDataReader(query, new DinamikSqlParameter("@UserID", cmbUser.EditValue));
 
                 kullaniciYetkileri.Clear();
                 while (reader.Read())
@@ -84,7 +84,7 @@ namespace CafeRestaurantOtomasyonu
                                         INSERT INTO KULLANICI_YETKILERI (Fk_Kullanici,Fk_YetkiTanimi,Yetki) 
                                         VALUES (@UserID,@YetkiTanimID,@Yetki)";
 
-                    CommonSqlOperations.ExecuteNonQuery(query, new DinamikSqlParameter("@UserID", cmbUser.EditValue),
+                    SqlHelper.ExecuteNonQuery(query, new DinamikSqlParameter("@UserID", cmbUser.EditValue),
                                                      new DinamikSqlParameter("@YetkiTanimID", kullaniciYetkileri[focusedRowHandle].YetkiTanimi),
                                                      new DinamikSqlParameter("@Yetki", kullaniciYetkileri[focusedRowHandle].Yetki));
                 }
