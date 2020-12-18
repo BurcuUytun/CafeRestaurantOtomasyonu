@@ -68,11 +68,13 @@
     <Compile Include="Classes\UniqueValue.cs" />
     <Compile Include="Classes\WaitingPanel.cs" />
     <Compile Include="DataLayerCustom\Kullanici.cs" />
+    <Compile Include="DataLayerCustom\Masa.cs" />
     <Compile Include="DataLayer\Ayar.cs" />
     <Compile Include="DataLayer\Kullanici.cs" />
     <Compile Include="Classes\Program.cs" />
     <Compile Include="DataLayerCustom\KullaniciYetki.cs" />
     <Compile Include="DataLayer\KullaniciYetki.cs" />
+    <Compile Include="DataLayer\Masa.cs" />
     <Compile Include="Forms\CustomXtraForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +83,12 @@
     </Compile>
     <Compile Include="Forms\FrmAyarlar.designer.cs">
       <DependentUpon>FrmAyarlar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasaTanitimKarti.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasaTanitimKarti.Designer.cs">
+      <DependentUpon>FrmMasaTanitimKarti.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmDBBaglanti.cs">
       <SubType>Form</SubType>
@@ -145,6 +153,9 @@
     </Compile>
     <EmbeddedResource Include="Forms\FrmAyarlar.resx">
       <DependentUpon>FrmAyarlar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasaTanitimKarti.resx">
+      <DependentUpon>FrmMasaTanitimKarti.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmDBBaglanti.resx">
       <DependentUpon>FrmDBBaglanti.cs</DependentUpon>

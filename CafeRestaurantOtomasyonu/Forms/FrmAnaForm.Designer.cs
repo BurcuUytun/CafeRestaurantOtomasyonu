@@ -36,13 +36,14 @@
             this.btnLisansAl = new DevExpress.XtraBars.BarButtonItem();
             this.btnHakkinda = new DevExpress.XtraBars.BarButtonItem();
             this.lblKullaniciBilgisi = new DevExpress.XtraBars.BarStaticItem();
+            this.btnKullaniciTanimlama = new DevExpress.XtraBars.BarButtonItem();
+            this.btnKullaniciYetkileri = new DevExpress.XtraBars.BarButtonItem();
+            this.btnAyarlar = new DevExpress.XtraBars.BarButtonItem();
             this.rpAyarlarveTanimlamalar = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgTanimlamalar = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.tmrCtrlLic = new System.Windows.Forms.Timer(this.components);
-            this.btnKullaniciTanimlama = new DevExpress.XtraBars.BarButtonItem();
-            this.btnKullaniciYetkileri = new DevExpress.XtraBars.BarButtonItem();
-            this.btnAyarlar = new DevExpress.XtraBars.BarButtonItem();
+            this.bntMasa = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.applicationMenu1)).BeginInit();
             this.SuspendLayout();
@@ -61,9 +62,10 @@
             this.btnHakkinda,
             this.btnKullaniciTanimlama,
             this.btnKullaniciYetkileri,
-            this.btnAyarlar});
+            this.btnAyarlar,
+            this.bntMasa});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 9;
+            this.ribbon.MaxItemId = 10;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rpAyarlarveTanimlamalar});
@@ -111,33 +113,6 @@
             this.lblKullaniciBilgisi.Id = 2;
             this.lblKullaniciBilgisi.Name = "lblKullaniciBilgisi";
             // 
-            // rpAyarlarveTanimlamalar
-            // 
-            this.rpAyarlarveTanimlamalar.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.rpgTanimlamalar});
-            this.rpAyarlarveTanimlamalar.Name = "rpAyarlarveTanimlamalar";
-            this.rpAyarlarveTanimlamalar.Text = "Ayarlar ve Tanımlamalar";
-            // 
-            // rpgTanimlamalar
-            // 
-            this.rpgTanimlamalar.ItemLinks.Add(this.btnKullaniciTanimlama);
-            this.rpgTanimlamalar.ItemLinks.Add(this.btnKullaniciYetkileri);
-            this.rpgTanimlamalar.ItemLinks.Add(this.btnAyarlar);
-            this.rpgTanimlamalar.Name = "rpgTanimlamalar";
-            this.rpgTanimlamalar.Text = "Tanımlamalar";
-            // 
-            // ribbonStatusBar
-            // 
-            this.ribbonStatusBar.ItemLinks.Add(this.lblKullaniciBilgisi);
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 418);
-            this.ribbonStatusBar.Name = "ribbonStatusBar";
-            this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(442, 31);
-            // 
-            // tmrCtrlLic
-            // 
-            this.tmrCtrlLic.Interval = 60000;
-            // 
             // btnKullaniciTanimlama
             // 
             this.btnKullaniciTanimlama.Caption = "Kullanıcı Tanımlama";
@@ -164,6 +139,41 @@
             this.btnAyarlar.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnAyarlar.ImageOptions.LargeImage")));
             this.btnAyarlar.Name = "btnAyarlar";
             this.btnAyarlar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAyarlar_ItemClick);
+            // 
+            // rpAyarlarveTanimlamalar
+            // 
+            this.rpAyarlarveTanimlamalar.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.rpgTanimlamalar});
+            this.rpAyarlarveTanimlamalar.Name = "rpAyarlarveTanimlamalar";
+            this.rpAyarlarveTanimlamalar.Text = "Ayarlar ve Tanımlamalar";
+            // 
+            // rpgTanimlamalar
+            // 
+            this.rpgTanimlamalar.ItemLinks.Add(this.btnKullaniciTanimlama);
+            this.rpgTanimlamalar.ItemLinks.Add(this.btnKullaniciYetkileri);
+            this.rpgTanimlamalar.ItemLinks.Add(this.btnAyarlar);
+            this.rpgTanimlamalar.ItemLinks.Add(this.bntMasa);
+            this.rpgTanimlamalar.Name = "rpgTanimlamalar";
+            this.rpgTanimlamalar.Text = "Tanımlamalar";
+            // 
+            // ribbonStatusBar
+            // 
+            this.ribbonStatusBar.ItemLinks.Add(this.lblKullaniciBilgisi);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 418);
+            this.ribbonStatusBar.Name = "ribbonStatusBar";
+            this.ribbonStatusBar.Ribbon = this.ribbon;
+            this.ribbonStatusBar.Size = new System.Drawing.Size(442, 31);
+            // 
+            // tmrCtrlLic
+            // 
+            this.tmrCtrlLic.Interval = 60000;
+            // 
+            // bntMasa
+            // 
+            this.bntMasa.Caption = "Masa Tanıtım Kartı";
+            this.bntMasa.Id = 9;
+            this.bntMasa.Name = "bntMasa";
+            this.bntMasa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bntMasa_ItemClick);
             // 
             // FrmAnaForm
             // 
@@ -204,5 +214,6 @@
         private DevExpress.XtraBars.BarButtonItem btnKullaniciTanimlama;
         private DevExpress.XtraBars.BarButtonItem btnKullaniciYetkileri;
         private DevExpress.XtraBars.BarButtonItem btnAyarlar;
+        private DevExpress.XtraBars.BarButtonItem bntMasa;
     }
 }

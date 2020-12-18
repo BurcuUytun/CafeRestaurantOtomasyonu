@@ -109,5 +109,13 @@ namespace CafeRestaurantOtomasyonu
             frmAyarlar.Show();
             frmAyarlar.WindowState = FormWindowState.Maximized;
         }
+
+        private void bntMasa_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+
+            FrmMasaTanitimKarti frmMasaTanitimKarti = new FrmMasaTanitimKarti();
+            frmMasaTanitimKarti.ShowDialog();
+        }
     }
 }
